@@ -102,7 +102,7 @@
                 })
             }
             const request = await fetch('Controller/Login/logar.php',config)
-         const response = await request.json();
+            const response = await request.json();
 
       
       if (response.status === 1) {

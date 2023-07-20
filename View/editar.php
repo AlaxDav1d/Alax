@@ -120,7 +120,7 @@
     $('#senhaTxt').val(dados[0].senha);
     $('#dataNascimentoTxt').val(dados[0].data_nasc);
   }
-    async function editarDados(e){
+    async function editarDados(id){
       const nomeCompletoTxt = $('#nomeCompletoTxt').val();
       const dataNascimentoTxt = $('#dataNascimentoTxt').val();
       const emailTxt = $('#emailTxt').val();
@@ -128,7 +128,7 @@
       const senhaTxt = $('#senhaTxt').val();
       const confirmarSenhaTxt = $('#confirmarSenhaTxt').val();
       const telefoneTxt = $('#telefoneTxt').val();
-      const idTxt = $('#idTxt').val();
+      const idJs = $('#idTxt').val();
       
       const config = { 
       method: 'post',
@@ -144,7 +144,7 @@
         senha:senhaTxt,
         confirmarSenha:confirmarSenhaTxt,
         telefone:telefoneTxt,
-        id: idTxt
+        id: idJs
       })
       }
     const request = await fetch('../Controller/usuarios/atualizarUsuario.php',config);

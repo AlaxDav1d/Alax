@@ -122,7 +122,7 @@ function deletarUsuario(id){
       const config = {
         method:'post',
         body:JSON.stringify({
-          idUsuario: id
+        idUsuario: id
         })
       };
       const request = await fetch('../controller/usuarios/deletarUsuario.php', config);

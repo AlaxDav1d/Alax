@@ -127,7 +127,6 @@ function deletarUsuario(id){
       };
       const request = await fetch('../controller/usuarios/deletarUsuario.php', config);
       const response = await request.json();
-   
       if(response.status === 1) {
         Swal.fire('Atenção!','Usuario removido com sucesso', 'sucess');
       }else{

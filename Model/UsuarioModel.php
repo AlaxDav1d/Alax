@@ -16,7 +16,7 @@
             $retorno = ['status' => 0, 'dados' => null];
     
             try {
-                $query = 
+        
                 $stmt = $this->db->prepare('
                 SELECT id, email FROM usuarios
                 WHERE email = :email
@@ -90,8 +90,9 @@
             $retorno = ['status' => 0,'dados' => null];
             try{
                 $query = $this->db->prepare('
-                UPDATE  * FROM usuarios 
+                UPDATE * FROM usuarios 
                 WHERE id = :id');
+                
                 $query->bindValue(':id', $this->id);
                 $query->execute();
                 $dados = $query->fetchAll();
@@ -100,7 +101,7 @@
                 $retorno['dados'] = $dados;
             }
             catch(PDOException $e){
-                echo 'erro ao listar usuario pelo ID: '.$e->getMessage();
+                echo 'erro ao atualizar usuario'.$e->getMessage();
             }
             return $retorno;
         }

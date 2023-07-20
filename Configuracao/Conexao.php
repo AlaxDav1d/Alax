@@ -1,6 +1,6 @@
 <?php
     class Conexao{
-        public $host = 'localhost:3308';
+        public $host = 'localhost';
         public $nomeBanco = 'crudSenac';
         public $usuarioBanco = 'root';
         public $senhaUsuario = '';

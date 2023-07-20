@@ -137,18 +137,20 @@
         'Content-Type': 'application/json'
       },
       body:JSON.stringify({
-        nome_completo:nomeCompletoTxt,
-        dataNascimento:dataNascimentoTxt,
+        nome_completo: nomeCompletoTxt,
+        data_nasc: dataNascimentoTxt,
         email:emailTxt,
         confirmarEmail:confirmarEmailTxt,
         senha:senhaTxt,
         confirmarSenha:confirmarSenhaTxt,
         telefone:telefoneTxt,
-        id:idTxt
+        id: idTxt
       })
       }
     const request = await fetch('../Controller/usuarios/atualizarUsuario.php',config);
+    
     const response = await request.json();
+    alert('ola mundo')
     if(response.status === 1){
       Swal.fire('Atenção!','dados atualizados com sucesso','sucess').then(res=>window.location.href = 'usuarios.php');
     }else{

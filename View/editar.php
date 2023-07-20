@@ -121,14 +121,7 @@
     $('#dataNascimentoTxt').val(dados[0].data_nasc);
   }
     async function editarDados(id){
-      const nomeCompletoTxt = $('#nomeCompletoTxt').val();
-      const dataNascimentoTxt = $('#dataNascimentoTxt').val();
-      const emailTxt = $('#emailTxt').val();
-      const confirmarEmailTxt = $('#confirmarEmailTxt').val();
-      const senhaTxt = $('#senhaTxt').val();
-      const confirmarSenhaTxt = $('#confirmarSenhaTxt').val();
-      const telefoneTxt = $('#telefoneTxt').val();
-      const idJs = $('#idTxt').val();
+  
       
       const config = { 
       method: 'post',
@@ -148,13 +141,16 @@
       })
       }
     const request = await fetch('../Controller/usuarios/atualizarUsuario.php',config);
-    
     const response = await request.json();
-    alert('ola mundo')
-    if(response.status === 1){
-      Swal.fire('Atenção!','dados atualizados com sucesso','sucess').then(res=>window.location.href = 'usuarios.php');
-    }else{
-      Swal.fire('Atenção!','Verifique as informações no form','error');
+    if(emailTxt == confirmarEmailTxt && senhaTxt == confirmarSenhaTxt){
+      if(response.status === 1){
+        Swal.fire('Atenção!','dados atualizados com sucesso','sucess').then(res=>window.location.href = 'usuarios.php');
+      }else{
+        Swal.fire('Atenção!','Verifique as informações no form','error');
+        //Swal é uma abreviação para sweetalert
+      }
+    }else{    
+      Swal.fire('Atenção!','A Senha ou o Email não coincidem','error');
     }
     }
   $(document).ready(async function(){await carregarDados(<?php echo $id; ?>);

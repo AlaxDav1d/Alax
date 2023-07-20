@@ -13,6 +13,7 @@ $dataNascimento = $reqbody->data_nasc;
 $email = $reqbody->email;
 $telefone = $reqbody->telefone;
 $senha = $reqbody->senha;
+
 //processamento
 $conexao = new Conexao();
 $db = $conexao->abrirConexao();

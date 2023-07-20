@@ -89,7 +89,13 @@
         public function atualizar(){
             $retorno = ['status' => 0,'dados' => null];
             try{
-                $query = $this->db->prepare(' UPDATE usuarios SET nome_completo = :nome, email = :email , data_nasc = :dataNasc, senha = :senha,telefone = :telefone WHERE id = :id');
+                $query = $this->db->prepare(' UPDATE usuarios SET 
+                    nome_completo = :nome, 
+                    email = :email , 
+                    data_nasc = :dataNasc, 
+                    senha = :senha,
+                    telefone = :telefone 
+                    WHERE id = :id');
                 
                 $query->bindValue(':id', $this->id);
                 $query->bindValue(':nome',$this->nomeCompletoModel); 
@@ -100,12 +106,31 @@
 
                 $query->execute();
                 $dados = $query->fetchAll();
-                
+            
                 $retorno['status'] = 1;
                 $retorno['dados'] = $dados;
             }
             catch(PDOException $e){
                 echo 'erro ao atualizar usuario'.$e->getMessage();
+            }
+            return $retorno;
+        }
+        public function cadastrar(){
+            $retorno = ['status' => 0,'dados' => null];
+            try{
+                $query = $this->db->prepare('INSERT 
+                INTO usuarios (nome_completo,data_nasc,email,senha,telefone) 
+                VALUES(:nome,:dataNasc,:email,:senha,:telefone)
+                ');
+
+                $query->bindValue(':nome',$this->nomeCompletoModel);
+                $query->bindValue(':dataNasc',$this->dataNascimentoModel);
+                $query->bindValue(':email',$this->emailModel);
+                $query->bindValue(':senha',$this->senhaModel);
+                $query->bindValue(':telefone',$this->telefoneModel);
+
+            }catch(PDOException $e){
+                echo 'erro ao cadastrar usuario'.$e->getMessage();
             }
             return $retorno;
         }

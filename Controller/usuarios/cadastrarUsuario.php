@@ -4,16 +4,17 @@
     //entrada
     $json = file_get_contents('php://input');
     $reqbody = json_decode($json);
-
-    $nomeComp = $reqbody->login;
+    
+    $nomeComp = $reqbody->nome;
     $dataNasc = $reqbody->dataNasc;
     $email = $reqbody->email;
     $senha = $reqbody->senha;
     $telefone = $reqbody->telefone;
+
     //processamento
     $conexao = new Conexao();
     $db = $conexao->abrirConexao();
-    $usuarioModel = new $usuarioModel($db);
+    $usuarioModel = new UsuarioModel($db);
 
     $usuarioModel->nomeCompletoModel = $nomeComp;
     $usuarioModel->dataNascimentoModel = $dataNasc;
@@ -21,8 +22,8 @@
     $usuarioModel->senhaModel = $senha;
     $usuarioModel->telefoneModel = $telefone;
 
-    $dados = $usuarioModel->cadastrar();
+    $retorno = $usuarioModel->cadastrar();    
     //saída
-    echo json_encode($dados);
+    echo json_encode($retorno);
 
 ?>

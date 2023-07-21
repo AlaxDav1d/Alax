@@ -121,8 +121,6 @@
     $('#dataNascimentoTxt').val(dados[0].data_nasc);
   }
     async function editarDados(id){
-  
-      
       const config = { 
       method: 'post',
       headers:{
@@ -154,15 +152,9 @@
     }
     }
   $(document).ready(async function(){await carregarDados(<?php echo $id; ?>);
+    $('#editarBtn').on('click',async function(e){ await editarDados(e); });
 
-  $('#editarBtn').on('click',async function(e){
-    await editarDados(e);
-  });
-
-  $('#cancelarBtn').on('click',function(){
-    window.location.href = 'usuarios.php';
-  });
-
+    $('#cancelarBtn').on('click',function(){ window.location.href = 'usuarios.php'; });
   });
 </script>
 

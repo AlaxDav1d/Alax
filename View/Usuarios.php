@@ -50,7 +50,7 @@
       </nav>
 
       <h1>Boas vindas ao sistema!</h1>
-      <a href="./cadastro.php" class="btn btn-success text-light">
+      <a href="../cadastro.php" class="btn btn-success text-light">
         Novo usuario
       </a>
 

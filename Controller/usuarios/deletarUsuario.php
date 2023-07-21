@@ -9,6 +9,7 @@
     $conexao = new Conexao();
     $db = $conexao->abrirConexao();
     $usuarioModel = new UsuarioModel($db);
+    
     $usuarioModel->id = $id;
     $retorno = $usuarioModel->deletar();
     //saida

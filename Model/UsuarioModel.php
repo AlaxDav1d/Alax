@@ -16,7 +16,6 @@
             $retorno = ['status' => 0, 'dados' => null];
     
             try {
-        
                 $stmt = $this->db->prepare('
                 SELECT id, email FROM usuarios
                 WHERE email = :email
@@ -27,7 +26,8 @@
                 $stmt->bindValue(':email', $this->emailModel);
                 $stmt->bindValue(':senha', $this->senhaModel);
                 $stmt->execute();
-                $dado = $stmt->fetch();
+                $dado = $stmt->fetch()
+                ;
     
                 if ($dado['id'] && $dado['id'] > 0) {
                     $retorno['status'] = 1;
@@ -76,6 +76,7 @@
                 SELECT  * FROM usuarios 
                 WHERE id = :id');
                 $query->bindValue(':id', $this->id);
+
                 $query->execute();
                 $dados = $query->fetchAll();
                 
@@ -119,19 +120,17 @@
         public function cadastrar(){
             $retorno = ['status' => 0,'dados' => null];
             try{
-                $query = $this->db->prepare('INSERT 
-                INTO usuarios (nome_completo,data_nasc,email,senha,telefone) 
-                VALUES(:nome,:dataNasc,:email,:senha,:telefone)
-                ');
-
+                $query = $this->db->prepare(' 
+                INSERT INTO usuarios "nome_completo" VALUES ":nome"');
                 $query->bindValue(':nome',$this->nomeCompletoModel);
-                $query->bindValue(':dataNasc',$this->dataNascimentoModel);
-                $query->bindValue(':email',$this->emailModel);
-                $query->bindValue(':senha',$this->senhaModel);
-                $query->bindValue(':telefone',$this->telefoneModel);
+                $query->execute();
+                $dados = $query->fetchAll();
 
-            }catch(PDOException $e){
-                echo 'erro ao cadastrar usuario'.$e->getMessage();
+                $retorno['status'] = 1;
+                $retorno['dados'] = $dados;
+            }
+            catch(PDOException $e){
+                echo 'erro ao cadastrar usuario MOdel'.$e->getMessage();
             }
             return $retorno;
         }

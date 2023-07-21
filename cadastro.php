@@ -24,16 +24,21 @@
             <label for="telefone">Telefone</label>
             <input type="tel" name="telefone" id="telefoneTxt">
 
-            <button id="submitBtn" onclick="cadastrarUsuario()"  ></button>
+            <button id="submitBtn"></button>
         </form>
-        <script type="text/javascript">
-            async function cadastrarUsuario(){
-                    const nomeCompletoTxt = $('#nomeCompletoTxt').val();
-                    const dataNascimentoTxt = $('#dataNascTxt').val();
-                    const emailTxt = $('#emailTxt').val();
-                    const senhaTxt = $('#senhaTxt').val();
-                    const telefoneTxt = $('#telefoneTxt').val();
-                  
+    </body>
+        <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
+        <script type="text/javascript" charset="utf-8">
+
+               $(document).ready(function (){
+                $("#submitBtn").on("click", async function (e){
+                    e.preventDefault();
+                    const nomeCompleto = $('#nomeCompletoTxt').val();
+                    const dataNascimento = $('#dataNascTxt').val();
+                    const email = $('#emailTxt').val();
+                    const senha = $('#senhaTxt').val();
+                    const telefone = $('#telefoneTxt').val();
+                    
                     const config ={
                         method:'post',
                         headers:{
@@ -41,25 +46,26 @@
                                 'Content-Type' : 'application/json'
                         },
                         body:JSON.stringify({
-                            login: nome,
-                            dataNasc: dataNasc,
+                            nome: nomeCompleto,
+                            dataNasc: dataNascimento,
                             email: email,
                             senha: senha,
                             telefone: telefone
                         })
                     }
-                   
-                    const request = await fetch('../Controller/usuarios/cadastrarUsuario.php');
-                
+                    
+                    const request = await fetch('Controller/usuarios/cadastrarUsuario.php',config);
                     const response = await request.json();
-                
+                    alert('hello world');
                     if(response.status == 1){
-                        window.location.href = '/Usuarios.php';
+                        window.location.href = 'usuarios.php';
                     }else{
-                        alert('erro ao cadastrar usuario')
-                    }               
-            }
-            
+                        alert('erro ao cadastrar usuario');
+                    }      
+                });
+            });
+                         
+                
+                
         </script>
-    </body>
 </html>

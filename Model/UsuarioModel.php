@@ -22,6 +22,7 @@
                 WHERE email = :email
                 AND senha = :senha
                 LIMIT 1
+                
                 ');
                 $stmt->bindValue(':email', $this->emailModel);
                 $stmt->bindValue(':senha', $this->senhaModel);

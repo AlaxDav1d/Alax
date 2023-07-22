@@ -58,7 +58,7 @@
                     const response = await request.json();
                     alert('hello world');
                     if(response.status == 1){
-                        window.location.href = 'usuarios.php';
+                        window.location.href = 'view/Usuarios.php';
                     }else{
                         alert('erro ao cadastrar usuario');
                     }      

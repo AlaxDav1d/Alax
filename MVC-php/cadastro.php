@@ -6,13 +6,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cadastro Usuario</title>
         <style>
-            @keyframes animacao{
-                0%{left: 500px;}
-                10%{right: 800px;}
-                20%{top: 500px;}
-                100%{top: 500px;}
-            }
 
+            @keyframes animacao{
+                0%{ 
+                    transform: translateY(-6vh);
+                    background-color: #3a4fb8;
+
+                }                
+                100%{ 
+                    transform: translateY(100vh);
+                    background-color: #051150;
+                    height: 10px;
+                }
+                                    
+            }
+            @keyframes rodar{
+                0%{
+                    transform: rotate(180deg);
+
+                }
+                100%{
+                    transform: rotate(360deg);
+                }
+            }
             *{
                 padding: 0;
                 margin: 0;
@@ -22,6 +38,7 @@
             .tudo{
                 height: 100vh;
                 background-color: #051150; 
+                overflow: hidden;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -30,7 +47,7 @@
             form{
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
                 height: 80vh;
                 width: 60vh;
                 color: aliceblue;
@@ -49,14 +66,31 @@
             input{
                 font-size: 15px;
                 padding: 10px;
+                border: none;
                 border-radius: 5px;
+                transition: 600ms;       
+            }
+            input:focus{
+                transform: scale(98%);
             }
             button{
                 background-color: rgb(255, 255, 255);
-                height: 20px;
+                padding: 10px;
+                transition: 600ms;
+                margin-top: 10px;
+                width: 200px;
             }
             form button:hover{
-                background-color: rgb(159, 7, 7);
+                background-color:#051150;
+                border-radius: 20px;
+                border: 5px black dotted;
+                color: #fff;
+            }
+            form button:focus{
+                background-color:#051150;
+                border-radius: 20px;
+                border: 5px black dotted;
+                color: #fff;
             }
             header{
                 background-color: #041a85;
@@ -75,25 +109,71 @@
             .ponto{
                 background-color: #fff;
                 width: 2px;
+                margin: 10px;
                 height: 2px;
                 border-radius: 50px;
                 position: relative;
-                animation: animacao infinite;
-                animation-duration: 5s;
+                animation: animacao calc(80s/ (var(--te)) ) infinite;
             }
             .flex{
                 display: flex;   
             }
+            .pontos{
+                display: flex;
+                animation-name: rodar;
+                animation-duration: 25s;
+                animation-direction: reverse;
+                animation-iteration-count: infinite;
+                overflow: hidden;
+                margin: 45px;
+            }
+            .pontos1{
+                display: flex;
+                animation-name: rodar;
+                animation-duration:25s;
+                animation-direction: normal;
+                animation-iteration-count: infinite;
+                overflow: hidden;
+                margin: 20px;
+            }
+
         </style>
     </head>
     <body>
         <div class="tudo">
-            <button disabled="disabled" class="ponto"></button>
+
             <header>
                 <h2>Bem Vindo ao nosso Sistema!!</h2>
             </header>
+
             <div class="flex">
-                <button disabled="disabled" class="ponto"></button>
+                <div class="pontos">
+                    <div class="ponto" style="--te:15"></div>
+                    <div class="ponto" style="--te:5"></div>
+                    <div class="ponto" style="--te:10"></div>
+                    <div class="ponto" style="--te:14"></div>
+                    <div class="ponto" style="--te:19"></div>
+                    <div class="ponto" style="--te:6"></div>
+                    <div class="ponto" style="--te:8"></div>
+                    <div class="ponto" style="--te:15"></div>
+                    <div class="ponto" style="--te:19"></div>
+                    <div class="ponto" style="--te:9"></div>
+                    <div class="ponto" style="--te:7"></div>
+                    <div class="ponto" style="--te:17"></div>
+                    <div class="ponto" style="--te:13"></div>
+                    <div class="ponto" style="--te:9"></div>
+                    <div class="ponto" style="--te:10"></div>
+                    <div class="ponto" style="--te:14"></div>
+                    <div class="ponto" style="--te:12"></div>
+                    <div class="ponto" style="--te:9"></div>
+                    <div class="ponto" style="--te:10"></div>
+                    <div class="ponto" style="--te:14"></div>
+                    <div class="ponto" style="--te:11"></div>
+                    <div class="ponto" style="--te:9"></div>
+                    <div class="ponto" style="--te:10"></div>
+                    <div class="ponto" style="--te:14"></div>
+                    <div class="ponto" style="--te:10"></div>
+                </div>
                 <form action="">
                 <h2>Realize aqui o seu Cadastro</h2>
                     <label for="nome">Nome</label>
@@ -111,13 +191,38 @@
                     <label for="telefone">Telefone</label>
                     <input type="tel" name="telefone" id="telefoneTxt">
 
-                    <button id="submitBtn"></button>
+                    <button id="submitBtn">Enviar</button>
                 </form>
-                <button disabled="disabled" class="ponto"></button>
-                <button disabled="disabled" class="ponto"></button>
-                <button disabled="disabled" class="ponto"></button>
-                <button disabled="disabled" class="ponto"></button>
-                <button disabled="disabled" class="ponto"></button>
+                <div class="pontos1">
+                    <div class="ponto" style="--te:7"></div>
+                    <div class="ponto" style="--te:9"></div>
+                    <div class="ponto" style="--te:17"></div>
+                    <div class="ponto" style="--te:19"></div>
+                    <div class="ponto" style="--te:7"></div>
+                    <div class="ponto" style="--te:10"></div>
+                    <div class="ponto" style="--te:9"></div>
+                    <div class="ponto" style="--te:18"></div>
+                    <div class="ponto" style="--te:16"></div>
+                    <div class="ponto" style="--te:8"></div>
+                    <div class="ponto" style="--te:11"></div>
+                    <div class="ponto" style="--te:9"></div>
+                    <div class="ponto" style="--te:12"></div>
+                    <div class="ponto" style="--te:19"></div>
+                    <div class="ponto" style="--te:5"></div>
+                    <div class="ponto" style="--te:11"></div>
+                    <div class="ponto" style="--te:9"></div>
+                    <div class="ponto" style="--te:18"></div>
+                    <div class="ponto" style="--te:10"></div>
+                    <div class="ponto" style="--te:6"></div>
+                    <div class="ponto" style="--te:9"></div>
+                    <div class="ponto" style="--te:16"></div>
+                    <div class="ponto" style="--te:11"></div>
+                    <div class="ponto" style="--te:8"></div>
+                    <div class="ponto" style="--te:9"></div>
+                    <div class="ponto" style="--te:7"></div>
+                    <div class="ponto" style="--te:19"></div>
+                    <div class="ponto" style="--te:5"></div>
+                </div>
             </div>
         </div>
        

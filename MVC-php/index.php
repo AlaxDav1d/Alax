@@ -7,38 +7,57 @@
     <title>Inicio PHP</title>
 
     <style>
-        body {
+        @keyframes grad{
+            0%{
+                background-color: black;
+            }
+            50%{
+                background-color: rebeccapurple;
+            }
+            100%{
+                background-color: rgb(3, 3, 95);
+            }
+        }
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .tudo{
+            background-color: black;
+            height: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            animation: grad 5s linear infinite alternate-reverse;
         }
-
         form {
             background-color: rgb(48, 17, 149);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 40vh;
-            width: 40vh;
+            height: 70vh;
+            width: 60vh;
             border-radius: 10px;
             color: #fff;
+            gap: 50px;
             text-transform: capitalize;
+            position: absolute;
+            padding: 20px;
         }
 
         input{
             padding: 5px;
-            margin: 15px;
             border-radius: 10px;
             height: 5vh;
-            width: 25vh;
+            width: 80%;
+            position: relative;
             font-size: 15px;
-            color: rgb(51, 1, 97);
+            color: rgb(185, 138, 230);
             border: none;
         }
         input:focus{
-            border: double red;
             background-color: aliceblue;
         }
         ::placeholder {
@@ -66,12 +85,15 @@
 </head>
 
 <body>
-    <form>
-        <h1>formulario aula PHP</h1>
-        <input type="text" name="login" placeholder="insira seu login" id="loginTxt">
-        <input type="password" name="senha" placeholder="insira sua senha" id="senhaTxt">
-        <input type="button" id="loginBtn" value='acessar'>
-    </form>
+    <div class="tudo">
+        <form>
+            <h1>formulario aula PHP</h1>
+            <input type="text" name="login" placeholder="insira seu login" id="loginTxt">
+            <input type="password" name="senha" placeholder="insira sua senha" id="senhaTxt">
+            <input type="button" id="loginBtn" value='acessar'>
+        </form>
+    </div>
+
 
 
 </body>

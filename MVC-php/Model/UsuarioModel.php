@@ -120,8 +120,7 @@
         public function cadastrar(){
             $retorno = ['status' => 0,'dados' => null];
             try{
-                $query = $this->db->prepare(' 
-                INSERT INTO usuarios(nome_completo,data_nasc,email,senha,telefone) 
+                $query = $this->db->prepare(' INSERT INTO usuarios(nome_completo,data_nasc,email,senha,telefone) 
                 VALUES (:nome,:dataNasc,:email,:senha,:telefone)');
 
                 $query->bindValue(':nome',$this->nomeCompletoModel);
@@ -129,6 +128,7 @@
                 $query->bindValue(':email',$this->emailModel);
                 $query->bindValue('senha',$this->senhaModel);
                 $query->bindValue('telefone',$this->telefoneModel);
+
                 $query->execute();
                 $dado = $query->fetch();
           

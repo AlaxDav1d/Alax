@@ -147,35 +147,10 @@
             </header>
 
             <div class="flex">
-                <div class="pontos">
-                    <div class="ponto" style="--te:15"></div>
-                    <div class="ponto" style="--te:5"></div>
-                    <div class="ponto" style="--te:10"></div>
-                    <div class="ponto" style="--te:14"></div>
-                    <div class="ponto" style="--te:19"></div>
-                    <div class="ponto" style="--te:6"></div>
-                    <div class="ponto" style="--te:8"></div>
-                    <div class="ponto" style="--te:15"></div>
-                    <div class="ponto" style="--te:19"></div>
-                    <div class="ponto" style="--te:9"></div>
-                    <div class="ponto" style="--te:7"></div>
-                    <div class="ponto" style="--te:17"></div>
-                    <div class="ponto" style="--te:13"></div>
-                    <div class="ponto" style="--te:9"></div>
-                    <div class="ponto" style="--te:10"></div>
-                    <div class="ponto" style="--te:14"></div>
-                    <div class="ponto" style="--te:12"></div>
-                    <div class="ponto" style="--te:9"></div>
-                    <div class="ponto" style="--te:10"></div>
-                    <div class="ponto" style="--te:14"></div>
-                    <div class="ponto" style="--te:11"></div>
-                    <div class="ponto" style="--te:9"></div>
-                    <div class="ponto" style="--te:10"></div>
-                    <div class="ponto" style="--te:14"></div>
-                    <div class="ponto" style="--te:10"></div>
-                </div>
+
                 <form action="">
                 <h2>Realize aqui o seu Cadastro</h2>
+
                     <label for="nome">Nome</label>
                     <input type="text" name="nomeCompleto" id="nomeCompletoTxt" >
 
@@ -193,36 +168,7 @@
 
                     <button id="submitBtn">Enviar</button>
                 </form>
-                <div class="pontos1">
-                    <div class="ponto" style="--te:7"></div>
-                    <div class="ponto" style="--te:9"></div>
-                    <div class="ponto" style="--te:17"></div>
-                    <div class="ponto" style="--te:19"></div>
-                    <div class="ponto" style="--te:7"></div>
-                    <div class="ponto" style="--te:10"></div>
-                    <div class="ponto" style="--te:9"></div>
-                    <div class="ponto" style="--te:18"></div>
-                    <div class="ponto" style="--te:16"></div>
-                    <div class="ponto" style="--te:8"></div>
-                    <div class="ponto" style="--te:11"></div>
-                    <div class="ponto" style="--te:9"></div>
-                    <div class="ponto" style="--te:12"></div>
-                    <div class="ponto" style="--te:19"></div>
-                    <div class="ponto" style="--te:5"></div>
-                    <div class="ponto" style="--te:11"></div>
-                    <div class="ponto" style="--te:9"></div>
-                    <div class="ponto" style="--te:18"></div>
-                    <div class="ponto" style="--te:10"></div>
-                    <div class="ponto" style="--te:6"></div>
-                    <div class="ponto" style="--te:9"></div>
-                    <div class="ponto" style="--te:16"></div>
-                    <div class="ponto" style="--te:11"></div>
-                    <div class="ponto" style="--te:8"></div>
-                    <div class="ponto" style="--te:9"></div>
-                    <div class="ponto" style="--te:7"></div>
-                    <div class="ponto" style="--te:19"></div>
-                    <div class="ponto" style="--te:5"></div>
-                </div>
+
             </div>
         </div>
        
@@ -235,6 +181,7 @@
                $(document).ready(function (){
                 $("#submitBtn").on("click", async function (e){
                     e.preventDefault();
+                  
                     const nomeCompleto = $('#nomeCompletoTxt').val();
                     const dataNascimento = $('#dataNascTxt').val();
                     const email = $('#emailTxt').val();
@@ -248,6 +195,7 @@
                                 'Content-Type' : 'application/json'
                         },
                         body:JSON.stringify({
+
                             nome: nomeCompleto,
                             dataNasc: dataNascimento,
                             email: email,

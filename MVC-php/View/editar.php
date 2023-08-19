@@ -121,6 +121,14 @@
     $('#dataNascimentoTxt').val(dados[0].data_nasc);
   }
     async function editarDados(id){
+      const nomeCompletoTxt = $('#nomeCompletoTxt').val();
+      const dataNascimentoTxt = $('#dataNascimentoTxt').val();
+      const emailTxt = $('#emailTxt').val();
+      const confirmarEmailTxt = $('#confirmarEmailTxt').val();
+      const senhaTxt = $('#senhaTxt').val();
+      const confirmarSenhaTxt = $('#confirmarSenhaTxt').val();
+      const telefoneTxt = $('#telefoneTxt').val();
+      const idTxt = $('#idTxt').val();
       const config = { 
       method: 'post',
       headers:{
@@ -135,7 +143,7 @@
         senha:senhaTxt,
         confirmarSenha:confirmarSenhaTxt,
         telefone:telefoneTxt,
-        id: idJs
+        id: idTxt
       })
       }
     const request = await fetch('../Controller/usuarios/atualizarUsuario.php',config);

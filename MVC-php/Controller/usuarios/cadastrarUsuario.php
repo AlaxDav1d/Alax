@@ -16,6 +16,7 @@
     $db = $conexao->abrirConexao();
     $usuarioModel = new UsuarioModel($db);
 
+
     $usuarioModel->nomeCompletoModel = $nomeComp;
     $usuarioModel->dataNascimentoModel = $dataNasc;
     $usuarioModel->emailModel = $email;

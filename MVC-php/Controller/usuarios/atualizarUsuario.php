@@ -7,7 +7,6 @@ $json = file_get_contents('php://input');
 $reqbody = json_decode($json);
 
 $id = $reqbody->id;
-
 $nomeCompleto = $reqbody->nome_completo;
 $dataNascimento = $reqbody->data_nasc;
 $email = $reqbody->email;

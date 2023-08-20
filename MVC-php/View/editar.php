@@ -150,7 +150,7 @@
     const response = await request.json();
     if(emailTxt == confirmarEmailTxt && senhaTxt == confirmarSenhaTxt){
       if(response.status === 1){
-        Swal.fire('Atenção!','dados atualizados com sucesso','sucess').then(res=>window.location.href = 'usuarios.php');
+        Swal.fire('Atenção!','Dados atualizados com sucesso','sucess').then(res=>window.location.href = 'usuarios.php');
       }else{
         Swal.fire('Atenção!','Verifique as informações no form','error');
         //Swal é uma abreviação para sweetalert

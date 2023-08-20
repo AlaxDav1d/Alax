@@ -77,8 +77,10 @@
         }
 
         #loginBtn:hover {       
-            color: aliceblue;
-            border: double red;
+            color: blue;
+            font-size: 18px;
+            border: 3px solid blue;
+            background-color: rgba(186,186,186,1);
             transition: 400ms;        
         }
     </style>

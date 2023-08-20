@@ -19,7 +19,7 @@
                               </div>
                               <div class="labels">
                                     <label for="descrição">Descrição</label>
-                                    <input type="text" name="Descrição" id="descricaoTxt" class="campoTxt" placeholder="Descrição">      
+                                    <input type="text" name="Descrição" id="descricaoTxt" class="campoTxt" placeholder="Descrição">
                               </div>
                         </div>     
                         <div class="inputs">
@@ -63,6 +63,12 @@
                         const inicio = $('#inicioTxt').val();
                         const termino = $('#terminoTxt').val();
                         const idUsuario = $('#idUsuarioTxt').val();
+                        /*
+                        
+                        VOU TENTAR ADICIONAR A FOREIGN KEY DEPOIS
+                        
+                        
+                        */
 
                         const config = {
                               method:'post',

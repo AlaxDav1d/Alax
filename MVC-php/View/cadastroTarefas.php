@@ -44,11 +44,49 @@
                         </div>
                         <div class="inputs">
                               <a href="./Usuarios.php"><input type="button" value="Cancelar" style="background-color: red;" id="sairTxt" ></a>
-                              <input type="button" value="Cadastrar" style="background-color: green;">      
+                              <input type="button" value="Cadastrar" style="background-color: green;" id="enviar">      
                         </div>      
                   </form>
             </div>
       </div>
 </body>
-</html>
 
+      <script src="../js/jquery-3.6.0.min.js" type="text/javascript"></script>
+      <script src="../js/sweetalert2.all.min.js"></script>
+      <script type="text/javascript" charset="utf-8">
+            $(document).ready(function(){
+                  $('#enviar').on('click',async function(e){
+                        e.preventDefault();
+
+                        const titulo = $('#tituloTxt').val();
+                        const desc = $('#descricaoTxt').val();
+                        const inicio = $('#inicioTxt').val();
+                        const termino = $('#terminoTxt').val();
+                        const idUsuario = $('#idUsuarioTxt').val();
+
+                        const config = {
+                              method:'post',
+                              headers:{
+                                    'Accept': 'application/json',
+                                    'Content-Type': 'application/json'
+                              },
+                              body:JSON.stringify({
+                                    titulo:titulo,
+                                    descricao:desc,
+                                    inicio:inicio,
+                                    termino:termino,
+                                    idUsuario:idUsuario
+                              })
+                        }
+                        const request =await fetch('../Controller/tarefas/cadastrarTarefa.php',config);
+                        const response = await request.json();
+
+                              if(response.status == 1){
+                                    Swal.fire('Atenção!','Usuario cadastrado com sucesso','sucess').then(res=>window.location.href = '../view/Usuarios.php');''
+                              }else{
+                                    Swal.fire('erro ao cadastrar usuario');
+                              }  
+                  });
+            });
+      </script>
+</html>

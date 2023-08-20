@@ -68,6 +68,43 @@
                   }
                   return $retorno;
       }
+      public function excluirTarefa(){
+            $retorno = ['status' => 0,'dados' => null];
+            try{
+                  $query = $this->db->prepare('DELETE FROM tarefas WHERE id = :id ');
+                  $query->bindValue(':id',$this->idTarefa);
+                  $query->execute();
+                  $retorno['status'] = 1;
+            }catch(PDOException $e){
+                  echo 'Erro ao deletar Tarefa'.$e->getMessage();
+            }
+            return $retorno;
+      }
+      public function cadastrarTarefa(){
+            $retorno = ['status' => 0,'dados' => null];
+            try{
+                  $query = $this->db->prepare('
+                  INSERT INTO tarefas(titulo,descricao,inicio,termino) 
+                  VALUES (:titulo,:descricao,:inicio,:termino)
+                  ');
+
+                  $query->bindValue(':titulo',$this->titulo);
+                  $query->bindValue(':descricao',$this->desc);
+                  $query->bindValue(':inicio',$this->inicio);
+                  $query->bindValue(':termino',$this->termino);
+
+                  $query->execute();
+                  $dados = $query->fetchAll();
+
+                  $retorno['status'] = 1;
+                  $retorno['dados'] = $dados;
+                  
+                  
+            }catch(PDOException $e){
+                  echo 'Erro ao cadastrar Tarefa'.$e->getMessage();
+            }
+            return $retorno;
+      }
       
     }
 ?>

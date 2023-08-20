@@ -100,7 +100,7 @@ async function carregarDados(){
               <i class="fas fa-pencil"></i>
             </button>
             <button class="btn-danger"
-                onclick="deletarUsuario(${item.id})">
+                onclick="deletarTarefa(${item.id})">
                 <i class="fas fa-trash"></i>
             </button>
             </div>
@@ -111,10 +111,10 @@ async function carregarDados(){
 function editarUsuario(id){
   window.location.href = `editarTarefa.php?id=${id}`;
 }
-function deletarUsuario(id){
+function deletarTarefa(id){
   Swal.fire({
     title: 'Atenção!',
-    text: 'Tem certeza que deseja remover esse usuario?',
+    text: 'Tem certeza que deseja remover essa tarefa?',
     icon: 'question',
     showConfirmButton: true,
     showCancelButton: true,
@@ -124,15 +124,15 @@ function deletarUsuario(id){
       const config = {
         method:'post',
         body:JSON.stringify({
-        idUsuario: id
+        idTarefa: id
         })
       };
-      const request = await fetch('../controller/usuarios/deletarUsuario.php', config);
+      const request = await fetch('../controller/tarefas/deletarTarefa.php', config);
       const response = await request.json();
       if(response.status === 1) {
-        Swal.fire('Atenção!','Usuario removido com sucesso', 'sucess');
+        Swal.fire('Atenção!','Tarefa excluida com sucesso', 'sucess');
       }else{
-        Swal.fire('Atenção!','Erro ao remover usuario.','error');
+        Swal.fire('Atenção!','Erro ao remover tarefa','error');
       }
     }
   });
